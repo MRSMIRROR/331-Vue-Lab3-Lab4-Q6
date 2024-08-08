@@ -1,28 +1,26 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { ref } from 'vue'
-
-const pageSize = ref(2)
 </script>
 
 <template>
   <div id="layout">
     <header>
       <div class="wrapper">
+        <HelloWorld msg="You did it!" />
+
         <nav>
-          <RouterLink :to="{ name: 'event-list-view', query: { pageSize: pageSize } }">Event</RouterLink>
-          <RouterLink :to="{ name: 'about' }">About</RouterLink>
-          <RouterLink :to="{ name: 'Student' }">Student</RouterLink>
+          <RouterLink :to="{ name: 'passenger-list-view' }">Home</RouterLink> 
         </nav>
       </div>
     </header>
-    <RouterView />
+  <RouterView />
   </div>
 </template>
 
-<style>
+<style scoped>
+
 #layout {
-  font-family: Avenir, Arial, Helvetica, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -35,13 +33,14 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #2c3e50
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #42b983
 }
+
 h2 {
-  font-size: 20px;
+  font-size:20px;
 }
 </style>
