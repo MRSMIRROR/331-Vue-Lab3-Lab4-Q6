@@ -1,5 +1,6 @@
 import axios, { type AxiosResponse } from 'axios'
-import type { Airline } from '@/types'
+import type { Passenger } from '@/type'
+import type { Airline } from '@/type'
 
 const apiClient = axios.create({
     baseURL: 'https://my-json-server.typicode.com/se331-2022/passengerdb',

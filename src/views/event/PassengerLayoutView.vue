@@ -4,8 +4,8 @@ import PassengerService from '@/services/PassengerService';
 import AirlineService from '@/services/AirlineService';
 import { RouterView } from 'vue-router';
 import { useRouter } from 'vue-router';
-import type { Passenger } from '@/types'
-import type { Airline } from '@/types'
+import type { Passenger } from '@/type'
+import type { Airline } from '@/type'
 
 const passenger = ref<Passenger | null> (null)
 const airline = ref<Airline | null> (null)

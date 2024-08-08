@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import AirlineService from '@/services/AirlineService'
+import AirlineService from '@/services/AirlineService';
 import PassengerService from '@/services/PassengerService';
-import type { Airline } from '@/types';
-import type { Passenger } from '@/types';
+import type { Airline } from '@/type';
+import type { Passenger } from '@/type';
+
 const airline = ref<Airline | null>(null);
 const passenger = ref<Passenger | null>(null);
 const route = useRoute();
@@ -14,9 +15,8 @@ onMounted(() => {
   if (!isNaN(id)) {
     PassengerService.getPassengerById(id)
       .then(response => {
-        const passengerId = Number(response.data.id);
-return AirlineService.getAirlineById(passengerId);
-
+        passenger.value = response.data;
+        return AirlineService.getAirlineById(response.data.airlineId);
       })
       .then(response => {
         airline.value = response.data;
@@ -30,7 +30,7 @@ return AirlineService.getAirlineById(passengerId);
 
 <template>
   <div v-if="passenger && airline">
-    <h1>Airline Number {{ passenger.id }}</h1>
+    <h1>Airline Number {{ passenger.airlineId }}</h1>
     <p>Airline name: {{ airline.AirlineName }}</p>
     <p>Airline email: {{ airline.email }}</p>
     <p>Airline address: {{ airline.address }}</p>

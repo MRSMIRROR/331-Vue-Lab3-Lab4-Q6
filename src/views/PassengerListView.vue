@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import PassengersCard from '@/components/PassengerCard.vue'
-import type { Passenger } from '@/types'
+import type { Passenger } from '@/type'
 import { ref, watchEffect, computed } from 'vue';
 import PassengerService from '@/services/PassengerService'
 import type { AxiosResponse } from 'axios';
